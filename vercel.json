@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/main-menu.html", "destination": "/index.html" },
     { "source": "/market.html", "destination": "/index.html" },
