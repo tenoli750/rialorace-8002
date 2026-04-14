@@ -1,6 +1,6 @@
-# Rialo Race 8002
+# Rialo Race
 
-Rialo Race 8002 is the redesigned React/Vite frontend for the Rialo Race live market, replay, rankings, rewards, history, profile, and chat pages.
+Rialo Race is the redesigned React/Vite frontend for the Rialo Race live market, replay, rankings, rewards, history, profile, and chat pages.
 
 Live site: https://rialoracev1.vercel.app  
 Repository: https://github.com/tenoli750/rialorace-8002
