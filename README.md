@@ -56,21 +56,3 @@ Production URL:
 ```text
 https://rialoracev1.vercel.app
 ```
-
-## Environment And Secrets
-
-No `.env` files are included in this repository.
-
-The frontend currently uses the public Supabase project URL and publishable key directly in the client code. Do not commit service-role keys, private database credentials, or local `.env` files.
-
-## Git Ignore
-
-The repository excludes:
-
-- `node_modules/`
-- `dist/`
-- `.env`
-- `.env.*`
-- `.vercel/`
-- `.DS_Store`
-
