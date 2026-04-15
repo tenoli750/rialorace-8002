@@ -362,7 +362,9 @@ export function LiveMarket() {
       <section className="bg-white rounded-lg border border-[#fed7aa] p-6">
         <div className="mb-4 flex items-center justify-between">
           <div>
-            <span className="text-xs text-[#8a5a44] uppercase tracking-wide">Bet Slip</span>
+            <span className="text-xs text-[#8a5a44] uppercase tracking-wide">
+              BET SLIP ({formatKstTime(nextRaceStartedAt)})
+            </span>
             <h2 className="text-lg text-[#9a3412] mt-1">Choose first, second, third</h2>
           </div>
           <span className="px-3 py-1 bg-[#ffedd5] text-xs text-[#9a3412] rounded-md">
@@ -534,6 +536,16 @@ function formatKstDate(timestamp: string | null) {
   return `${new Intl.DateTimeFormat("en-GB", {
     month: "2-digit",
     day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: "Asia/Seoul"
+  }).format(new Date(timestamp))} KST`;
+}
+
+function formatKstTime(timestamp: string | null) {
+  if (!timestamp) return "-";
+  return `${new Intl.DateTimeFormat("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
