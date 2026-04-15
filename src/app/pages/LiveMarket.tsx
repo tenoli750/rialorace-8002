@@ -347,7 +347,9 @@ export function LiveMarket() {
                     <div className="text-[#8a5a44] mb-1">{formatKstDate(bet.target_race_started_at)}</div>
                     <div className="text-[#9a3412]">{formatBetPicks(bet)}</div>
                     <div className="text-[#8a5a44] mt-1">Stake: {formatStakeWithPayout(bet)}</div>
-                    <div className="text-[#9a3412] mt-1">Status: {String(bet.status ?? "placed").toUpperCase()}</div>
+                    <div className={`mt-1 ${getBetStatusClass(bet.status)}`}>
+                      Status: {String(bet.status ?? "placed").toUpperCase()}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -518,6 +520,13 @@ function formatStakeWithPayout(row: BetRow) {
   const stake = Number(row.stake_points ?? 0);
   const payout = String(row.status ?? "").toLowerCase() === "won" ? Number(row.payout_points ?? 0) : 0;
   return `${stake.toLocaleString()} pts (${payout.toLocaleString()} pts)`;
+}
+
+function getBetStatusClass(status: string | null | undefined) {
+  const normalizedStatus = String(status ?? "").toLowerCase();
+  if (normalizedStatus === "won") return "text-[#15803d]";
+  if (normalizedStatus === "lost") return "text-[#c62828]";
+  return "text-[#9a3412]";
 }
 
 function formatKstDate(timestamp: string | null) {
